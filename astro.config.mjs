@@ -39,6 +39,7 @@ export default defineConfig({
 				}),
 			],
 			title: "IEFA - CPAINT",
+			defaultLocale: "pt-BR",
 			customCss: ["./src/styles/custom.css"],
 			components: {
 				PageTitle: "./src/components/PageTitle.astro",
