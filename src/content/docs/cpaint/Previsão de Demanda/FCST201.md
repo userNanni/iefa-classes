@@ -1,0 +1,29 @@
+---
+title: FCST201 - Métodos de Previsão
+description: Algoritmos e técnicas de projeção de demanda.
+---
+
+**Código**: FCST201  
+**Nível**: Intermediário  
+**Pré-requisitos**: ANA201, STAT101
+
+## Objetivos de Aprendizagem
+
+Ao final desta matéria, o aluno deverá ser capaz de:
+1.  Aplicar o método de Média Móvel Simples e Ponderada.
+2.  Utilizar Suavização Exponencial Simples (SES) para previsões de curto prazo.
+3.  Entender e calcular o erro da previsão (MAD, MSE, MAPE).
+4.  Saber quando utilizar métodos qualitativos vs. quantitativos.
+
+## Tópicos Abordados
+
+-   **Horizonte de Previsão**: Curto vs. Longo prazo.
+-   **Modelos Ingênuos**: Último valor, Média histórica.
+-   **Suavização Exponencial**: Dando peso diferente aos dados recentes.
+-   **Acuracidade**: Como medir se sua previsão foi boa e como melhorar.
+-   **Vieses**: Identificando se sua previsão é otimista ou pessimista demais.
+
+## Materiais de Consulta
+
+-   Livro: "Business Forecasting" - Hanke & Wichern.
+-   Ferramenta: Solver do Excel para otimização de parâmetros.

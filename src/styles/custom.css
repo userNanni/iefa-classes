@@ -1,0 +1,98 @@
+@layer starlight, black, zen-mode, custom-zen-fixes;
+
+@layer custom-zen-fixes {
+	/* ============================================ */
+	/* Fix 1: Show the Zen Mode toggle button      */
+	/* ============================================ */
+
+	/* The theme-black hides the Zen switcher by default */
+	/* Force it to be visible in the page title area */
+	.starlight-view-modes-page-title-switcher,
+	.starlight-view-modes-switcher-a {
+		display: inline-flex !important;
+		align-items: center;
+		gap: 0.5rem;
+		margin-left: 0.5rem;
+		opacity: 0.7;
+		transition: opacity 0.2s;
+	}
+
+	.starlight-view-modes-page-title-switcher:hover,
+	.starlight-view-modes-switcher-a:hover {
+		opacity: 1;
+	}
+
+	/* ============================================ */
+	/* Fix: Sidebar item overlap                   */
+	/* ============================================ */
+
+	/* Remove fixed height to allow items to grow with content */
+	.entry-link {
+		height: auto !important;
+		min-height: 32px !important;
+		padding: 0.5rem 1rem !important;
+	}
+
+	/* Ensure proper spacing between items */
+	.entry {
+		margin-bottom: 0.25rem !important;
+	}
+
+	/* Prevent text overflow */
+	.entry-link span {
+		overflow-wrap: break-word !important;
+		word-wrap: break-word !important;
+	}
+
+	/* ============================================ */
+	/* Fix 2: Hide header/sidebar in Zen Mode      */
+	/* ============================================ */
+
+	/* When Zen Mode is active, the plugin adds these divs inside the page */
+	/* Use :has() to detect them and hide the appropriate elements */
+
+	/* Hide header when no-header div exists */
+	body:has(.starlight-view-modes-zen-mode-no-header) header.layout__header {
+		display: none !important;
+	}
+
+	/* Hide sidebar when no-sidebar div exists */
+	body:has(.starlight-view-modes-zen-mode-no-sidebar)
+	:is(nav.nav-bar, aside.sidebar, aside.aside) {
+		display: none !important;
+	}
+
+	/* ============================================ */
+	/* Bonus: Adjust main content in Zen Mode      */
+	/* ============================================ */
+
+	/* When header is hidden, remove top padding/margin from main */
+	body:has(.starlight-view-modes-zen-mode-no-header) main {
+		padding-top: 2rem;
+	}
+
+	/* When sidebar is hidden, let content take full width */
+	body:has(.starlight-view-modes-zen-mode-no-sidebar) .content-panel {
+		max-width: 100%;
+	}
+
+	/* Fix squeezed layout in Zen Mode */
+	/* Override the grid layout used by theme-black */
+	body:has(.starlight-view-modes-zen-mode-no-sidebar) .container-wrapper-main {
+		display: block !important;
+		grid-template-columns: none !important;
+	}
+
+	body:has(.starlight-view-modes-zen-mode-no-sidebar) .container-main,
+	body:has(.starlight-view-modes-zen-mode-no-sidebar) .main-pane {
+		width: 100% !important;
+		max-width: 90rem !important;
+		margin: 0 auto !important;
+		padding: 0 2rem !important;
+	}
+
+	body:has(.starlight-view-modes-zen-mode-no-sidebar) .sl-markdown-content {
+		max-width: 80ch;
+		margin: 0 auto;
+	}
+}
