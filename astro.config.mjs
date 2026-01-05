@@ -10,7 +10,7 @@ import starlightViewModes from "starlight-view-modes";
 export default defineConfig({
 	site: "https://cpaint.iefa.com.br",
 	integrations: [
-		mermaid({ theme: "dark" }),
+		mermaid({ theme: "dark", autoTheme: true }),
 		starlight({
 			plugins: [
 				starlightThemeBlack({
@@ -42,6 +42,7 @@ export default defineConfig({
 			customCss: ["./src/styles/custom.css"],
 			components: {
 				PageTitle: "./src/components/PageTitle.astro",
+				PageFrame: "./src/components/PageFrame.astro",
 			},
 			social: [
 				{

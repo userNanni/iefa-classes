@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/complexity/noImportantStyles: <explanation> */
 @layer starlight, black, zen-mode, custom-zen-fixes;
 
 @layer custom-zen-fixes {
@@ -201,5 +202,54 @@
 			padding-left: 0.75rem !important;
 			padding-right: 0.75rem !important;
 		}
+	}
+
+	/* ============================================ */
+	/* Fix: Mermaid diagrams in dark theme         */
+	/* ============================================ */
+
+	/* Override Mermaid custom classes to work with dark theme */
+	/* Using lighter, more vibrant colors with better contrast */
+
+	.mermaid .nivel100 {
+		fill: #64b5f6 !important; /* Light blue background */
+		stroke: #1976d2 !important; /* Darker blue border */
+	}
+
+	.mermaid .nivel200 {
+		fill: #ffb74d !important; /* Light orange background */
+		stroke: #f57c00 !important; /* Darker orange border */
+	}
+
+	.mermaid .nivel300 {
+		fill: #ba68c8 !important; /* Light purple background */
+		stroke: #7b1fa2 !important; /* Darker purple border */
+	}
+
+	/* Text inside nodes should be dark for better readability on light backgrounds */
+	.mermaid .nivel100 .nodeLabel,
+	.mermaid .nivel200 .nodeLabel,
+	.mermaid .nivel300 .nodeLabel {
+		fill: #1a1a1a !important;
+		color: #1a1a1a !important;
+	}
+
+	/* General Mermaid text (labels, etc.) should be light for dark page background */
+	.mermaid text,
+	.mermaid .edgeLabel {
+		fill: #e0e0e0 !important;
+		color: #e0e0e0 !important;
+	}
+
+	/* Adjust Mermaid edge/arrow colors for dark theme */
+	.mermaid .edgePath .path,
+	.mermaid .flowchart-link {
+		stroke: #9e9e9e !important;
+	}
+
+	/* Adjust marker (arrow) colors */
+	.mermaid marker {
+		fill: #9e9e9e !important;
+		stroke: #9e9e9e !important;
 	}
 }
