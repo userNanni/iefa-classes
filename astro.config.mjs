@@ -15,7 +15,7 @@ export default defineConfig({
 				starlightThemeBlack({
 					navLinks: [
 						{
-							label: "Docs",
+							label: "CPAINT",
 							link: "/cpaint/",
 						},
 					],
@@ -46,7 +46,7 @@ export default defineConfig({
 				{
 					icon: "github",
 					label: "GitHub",
-					href: "https://github.com/withastro/starlight",
+					href: "https://github.com/userNanni/iefa-classes",
 				},
 			],
 			sidebar: [

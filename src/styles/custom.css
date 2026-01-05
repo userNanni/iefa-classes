@@ -95,4 +95,31 @@
 		max-width: 80ch;
 		margin: 0 auto;
 	}
+
+	/* ============================================ */
+	/* Fix: Cards width on splash pages (homepage) */
+	/* ============================================ */
+
+	/* Limit content width on splash template to match header width */
+	/* This prevents cards from stretching edge-to-edge on desktop */
+	.page-wrapper:has(.hero) .sl-markdown-content {
+		max-width: 96rem; /* 1536px - same as Starlight Black */
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+
+	/* Ensure card grids respect the content width */
+	.page-wrapper:has(.hero) .card-grid {
+		max-width: 100%;
+	}
+
+	.markdown-wrapper {
+		max-width: 96rem;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
 }
