@@ -1,7 +1,7 @@
 # IEFA - CPAINT
 
-[![Deploy to GitHub Pages](https://github.com/userNanni/iefa-classes/actions/workflows/deploy.yml/badge.svg)](https://github.com/userNanni/iefa-classes/actions/workflows/deploy.yml)
 [![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+[![Deployed on Vercel](https://vercel.com/button)](https://cpaint.iefa.com.br)
 
 Documentação do curso CPAINT (Curso de Planejamento Avançado Integrado).
 
@@ -44,23 +44,25 @@ All commands are run from the root of the project, from a terminal:
 
 ## 🚀 Deploy
 
-Este projeto está configurado para deploy automático no GitHub Pages usando GitHub Actions.
+Este projeto é deployado automaticamente via **Vercel** sempre que há push na branch `main`.
 
-### Primeira Configuração
+### Como funciona
 
-1. Faça push do código para o repositório GitHub
-2. Vá em **Settings → Pages** no repositório
-3. Em **Source**, selecione **GitHub Actions**
-4. O workflow executará automaticamente e fará o deploy
+- ✅ **Deploy automático**: Push no `main` → Build → Deploy
+- ✅ **Preview deployments**: Cada PR gera uma URL de preview
+- ✅ **Domínio customizado**: https://cpaint.iefa.com.br
+- ✅ **SSL automático**: HTTPS configurado automaticamente
+- ✅ **Edge Network global**: CDN em 100+ localizações
 
-### Deploy Automático
+### Configuração de Domínio Customizado
 
-Após a configuração inicial, cada push na branch `main` acionará automaticamente:
-- ✅ Build do projeto com Astro
-- ✅ Deploy no GitHub Pages
-- ✅ Site disponível em: https://usernanni.github.io/iefa-classes/
-
-Você pode acompanhar o status dos deploys na aba **Actions** do repositório.
+1. No painel da Vercel, vá em **Settings → Domains**
+2. Adicione: `cpaint.iefa.com.br`
+3. Configure DNS:
+   - Tipo: `CNAME`
+   - Nome: `cpaint`
+   - Valor: `cname.vercel-dns.com`
+4. Aguarde propagação DNS (~10min)
 
 ## 👀 Want to learn more?
 

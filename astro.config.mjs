@@ -8,8 +8,7 @@ import starlightViewModes from "starlight-view-modes";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://usernanni.github.io",
-	base: "/iefa-classes",
+	site: "https://cpaint.iefa.com.br",
 	integrations: [
 		mermaid({ theme: "dark" }),
 		starlight({
