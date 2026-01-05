@@ -29,8 +29,8 @@ export default defineConfig({
 						displayOptions: {
 							showHeader: false,
 							showSidebar: false,
-							showTableOfContents: true,
-							showFooter: true,
+							showTableOfContents: false,
+							showFooter: false,
 						},
 						// Disabled by default; enable if you want it:
 						keyboardShortcut: ["Ctrl+Shift+Z"],

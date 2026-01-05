@@ -14,47 +14,24 @@ Este cronograma utiliza uma abordagem de **aprendizado entrelaçado**, onde conc
 ```mermaid
 gantt
     title Fluxo de Aprendizado - Previsão de Demanda
-    dateFormat  YYYY-MM-DD
-    axisFormat  %d/%m
-    excludes    weekends
+    dateFormat YYYY-MM-DD
+    axisFormat %d/%m
+    excludes weekends
 
-    %% Definição de Cores por Matéria
-    %% STAT: Azul (Fundamentos)
-    %% FCST: Púrpura (Previsão)
-    %% LOG: Laranja (Estoque)
-    %% ANA: Verde (Análise)
-    %% OPT: Vermelho (Otimização)
+    section Fundamentos (Fev-Mar)
+    STAT101 Estatística Básica             :done, stat, 2026-02-25, 10d
+    FCST201 Introdução Previsão            :active, fcst1, 2026-02-26, 2d
+    ANA201 Análise Exploratória            :ana, 2026-03-10, 2d
     
-    section Fev/Mar - Fundamentos
-    Média e Dispersão (STAT)           :done,    stat1, 2026-02-25, 1d
-    Médias Móveis (FCST)               :         fcst1, after stat1, 1d
+    section Estoque e Ciclos (Mar-Mai)
+    LOG201 Gestão de Estoque               :log, 2026-03-04, 40d
+    FCST201 Métodos Avançados              :fcst2, 2026-05-14, 9d
+   
+    section Otimização (Mai-Jun)
+    OPT301 Grafos e Rotas                  :opt, 2026-05-28, 6d
     
-    Normal e Probabilidade (STAT)      :active,  stat2, 2026-02-25, 9d
-    EDA e Outliers (ANA)               :         ana1, after stat2, 1d
-    
-    section Mar - Ciclos e Sazonalidade
-    Padrão Dente de Serra (LOG)        :         log1, 2026-03-04, 1d
-    Séries Temporais (ANA)             :         ana2, 2026-03-18, 1d
-    Curva ABC (LOG/ANA)                :crit,    log2, 2026-03-18, 15d
-    
-    section Abr/Mai - Gestão de Estoque
-    Ponto de Reposição (LOG)           :         log3, 2026-04-01, 1d
-    Estoque de Segurança (LOG)         :         log4, 2026-05-06, 1d
-    Curva de Suprimento (LOG)          :         log5, 2026-05-07, 1d
-    Lote Econômico EOQ (LOG)           :         log6, 2026-05-13, 1d
-    
-    section Mai - Previsão Avançada
-    Suavização Exponencial (FCST)      :         fcst2, 2026-05-14, 8d
-    Métricas de Erro e Viés (FCST)     :         fcst3, 2026-05-22, 1d
-    
-    section Jun - Otimização e Projetos
-    Grafos e Redes (OPT)               :active,  opt1, 2026-05-28, 1d
-    Dijkstra e VRP (OPT)               :         opt2, 2026-05-29, 4d
-    Projeto Integrado (Workshop)       :crit,    proj1, 2026-06-03, 20d
-    
-    section Jul/Ago - Finalização
-    Revisão Geral                      :         rev1, 2026-07-14, 1d
-    Reserva Técnica                    :         res1, 2026-08-04, 1d
+    section Projeto Final (Jun-Ago)
+    Workshop Integrado                     :crit, proj, 2026-06-03, 30d
 ```
 
 <Aside type="caution" title="Planejamento de Carga Horária (Regra dos 70%)">
