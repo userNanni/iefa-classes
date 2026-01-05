@@ -122,4 +122,84 @@
 		padding-left: 2rem;
 		padding-right: 2rem;
 	}
+
+	/* ============================================ */
+	/* Fix: Mobile layout and overflow issues      */
+	/* ============================================ */
+
+	/* Prevent horizontal overflow on mobile */
+	@media (max-width: 50rem) {
+		/* Fix pagination links overflow */
+		/* Stack Previous/Next buttons vertically on mobile */
+		.pagination-links {
+			display: flex !important;
+			flex-direction: column !important;
+			gap: 0.75rem !important;
+			width: 100% !important;
+		}
+
+		.pagination-links a,
+		.pagination-links .link {
+			width: 100% !important;
+			max-width: 100% !important;
+			text-align: left !important;
+			white-space: normal !important;
+			word-wrap: break-word !important;
+		}
+
+		/* Prevent body horizontal scroll */
+		body {
+			overflow-x: hidden !important;
+		}
+
+		/* Adjust main content padding on mobile */
+		main,
+		.main-frame {
+			padding-left: 1rem !important;
+			padding-right: 1rem !important;
+		}
+
+		/* Fix splash page cards on mobile */
+		.page-wrapper:has(.hero) .sl-markdown-content {
+			padding-left: 1rem !important;
+			padding-right: 1rem !important;
+		}
+
+		.markdown-wrapper {
+			padding-left: 1rem !important;
+			padding-right: 1rem !important;
+		}
+
+		/* Ensure sidebar drawer doesn't cover pagination when open */
+		.mobile-sidebar-toggle {
+			z-index: 100 !important;
+		}
+
+		/* Adjust header for mobile to prevent icon crowding */
+		.site-title {
+			flex-shrink: 1 !important;
+			min-width: 0 !important;
+		}
+
+		/* Allow search bar to shrink on very small screens */
+		.search {
+			flex-shrink: 1 !important;
+			max-width: 60% !important;
+		}
+	}
+
+	/* Extra small devices (< 375px) */
+	@media (max-width: 23.4375rem) {
+		.search {
+			max-width: 50% !important;
+		}
+
+		main,
+		.main-frame,
+		.page-wrapper:has(.hero) .sl-markdown-content,
+		.markdown-wrapper {
+			padding-left: 0.75rem !important;
+			padding-right: 0.75rem !important;
+		}
+	}
 }

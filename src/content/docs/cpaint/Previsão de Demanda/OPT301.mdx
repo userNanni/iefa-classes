@@ -32,6 +32,7 @@ Ao final desta matéria, o aluno deverá ser capaz de:
 ## Tópicos Abordados
 
 ### Fundamentos de Grafos
+- **O Problema das Pontes de Königsberg**: A origem histórica da teoria dos grafos. Como Euler provou a impossibilidade de atravessar todas as 7 pontes sem repetir nenhuma, criando o conceito de caminhos eulerianos.
 - **O que é um grafo**: Representação visual de conexões.
 - **Tipos de grafos**:
   - Direcionados vs. não-direcionados.
@@ -84,11 +85,27 @@ Esta matéria foca na **intuição e aplicação prática**. Não há demonstra�
 - **Objetivo**: Minimizar distância total percorrida.
 - **Restrições**: Capacidade do veículo, janelas de tempo.
 
+<Aside type="danger" title="O Problema do Caixeiro Viajante (TSP)">
+O VRP é uma generalização do famoso **Travelling Salesperson Problem (TSP)**. É fundamental entender que este é um problema **NP-Completo**, o que significa que, computacionalmente, não existe (ainda) uma fórmula mágica para encontrar a solução perfeita instantaneamente para muitos pontos.
+*   **Relevância Prática**: A diferença entre uma rota "no olho" e uma rota otimizada pode representar milhões em economia de combustível anualmente.
+*   **Complexidade**: Com poucos pontos é fácil, mas a dificuldade cresce exponencialmente. Por isso usamos heurísticas e Solvers.
+</Aside>
+
 #### Uso do Excel Solver
 - Configurando variáveis de decisão.
 - Definindo função objetivo (minimizar distância).
 - Adicionando restrições.
 - Interpretando resultados.
+
+### Algoritmos Gulosos (Greedy Algorithms)
+
+<Aside type="tip" title="A Armadilha do 'Vizinho Mais Próximo'">
+Um **algoritmo guloso** sempre escolhe a opção que parece melhor **agora**, sem olhar à frente.
+
+**Exemplo Clássico**: No TSP, começar pelo destino mais próximo parece lógico, mas frequentemente resulta em rotas piores que abordagens mais sofisticadas.
+
+**Lição para Gestores**: Decisões que parecem ótimas no curto prazo podem ser ruins estrategicamente. Planejamento logístico exige visão de longo prazo.
+</Aside>
 
 ### Aplicações Militares
 
