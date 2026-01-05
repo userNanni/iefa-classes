@@ -1,12 +1,10 @@
-# Starlight Starter Kit: Basics
+# IEFA - CPAINT
 
+[![Deploy to GitHub Pages](https://github.com/userNanni/iefa-classes/actions/workflows/deploy.yml/badge.svg)](https://github.com/userNanni/iefa-classes/actions/workflows/deploy.yml)
 [![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
 
-```
-pnpm create astro@latest -- --template starlight
-```
+Documentação do curso CPAINT (Curso de Planejamento Avançado Integrado).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
 ## 🚀 Project Structure
 
@@ -43,6 +41,26 @@ All commands are run from the root of the project, from a terminal:
 | `pnpm preview`         | Preview your build locally, before deploying     |
 | `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `pnpm astro -- --help` | Get help using the Astro CLI                     |
+
+## 🚀 Deploy
+
+Este projeto está configurado para deploy automático no GitHub Pages usando GitHub Actions.
+
+### Primeira Configuração
+
+1. Faça push do código para o repositório GitHub
+2. Vá em **Settings → Pages** no repositório
+3. Em **Source**, selecione **GitHub Actions**
+4. O workflow executará automaticamente e fará o deploy
+
+### Deploy Automático
+
+Após a configuração inicial, cada push na branch `main` acionará automaticamente:
+- ✅ Build do projeto com Astro
+- ✅ Deploy no GitHub Pages
+- ✅ Site disponível em: https://usernanni.github.io/iefa-classes/
+
+Você pode acompanhar o status dos deploys na aba **Actions** do repositório.
 
 ## 👀 Want to learn more?
 
