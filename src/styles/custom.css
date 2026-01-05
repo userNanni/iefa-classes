@@ -1,5 +1,76 @@
 /** biome-ignore-all lint/complexity/noImportantStyles: <explanation> */
-@layer starlight, black, zen-mode, custom-zen-fixes;
+@layer starlight, black, zen-mode, custom-zen-fixes, schedule-design;
+
+@layer schedule-design {
+	/* Standardize the wrapper */
+	.schedule-container {
+		width: 100%;
+		margin: 2rem 0;
+		overflow-x: auto; /* Handle horizontal overflow gracefully */
+		border-radius: 8px; /* Rounded corners for the container */
+		box-shadow:
+			0 4px 6px -1px rgba(0, 0, 0, 0.1),
+			0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Subtle shadow */
+		background-color: var(
+			--sl-color-bg-nav
+		); /* Match nav background for cohesion */
+		border: 1px solid var(--sl-color-gray-5);
+	}
+
+	/* Target the table specifically within the container */
+	.schedule-container table {
+		width: 100%;
+		border-collapse: collapse;
+		margin: 0; /* Remove default margins */
+		font-size: 0.95rem; /* Slightly smaller text for data density */
+		display: table !important; /* Force table display overrides */
+	}
+
+	/* Header styling */
+	.schedule-container th {
+		background-color: var(--sl-color-black); /* Dark header */
+		color: var(--sl-color-white);
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		padding: 1rem;
+		text-align: left;
+		border-bottom: 2px solid var(--sl-color-accent); /* Accent line */
+	}
+
+	/* Cell styling */
+	.schedule-container td {
+		padding: 1rem;
+		border-bottom: 1px solid var(--sl-color-hairline);
+		vertical-align: top; /* Align content to top for multi-line cells */
+		color: var(--sl-color-gray-2);
+	}
+
+	/* Row Hover Effect */
+	.schedule-container tr:hover td {
+		background-color: var(--sl-color-gray-6); /* Light highlight on hover */
+		transition: background-color 0.2s ease;
+	}
+
+	/* First column special styling (Date/Time often) */
+	.schedule-container td:first-child {
+		font-weight: 600;
+		color: var(--sl-color-text-accent);
+		white-space: nowrap; /* Keep dates on one line if possible */
+	}
+
+	/* Responsive adjustment for badges inside table */
+	.schedule-container .badge {
+		font-size: 0.8em;
+	}
+
+	/* Remove Starlight's default table scrolling wrapper since we handle it in container */
+	:where(.schedule-container)
+		+ .sl-markdown-content
+		> table:not(:where(.not-content *)) {
+		display: table; /* Reset starlight default */
+	}
+}
 
 @layer custom-zen-fixes {
 	/* ============================================ */
@@ -211,44 +282,44 @@
 	/* Override Mermaid custom classes to work with dark theme */
 	/* Using lighter, more vibrant colors with better contrast */
 
-	.mermaid .nivel100 {
+	[data-theme="dark"] .mermaid .nivel100 {
 		fill: #64b5f6 !important; /* Light blue background */
 		stroke: #1976d2 !important; /* Darker blue border */
 	}
 
-	.mermaid .nivel200 {
+	[data-theme="dark"] .mermaid .nivel200 {
 		fill: #ffb74d !important; /* Light orange background */
 		stroke: #f57c00 !important; /* Darker orange border */
 	}
 
-	.mermaid .nivel300 {
+	[data-theme="dark"] .mermaid .nivel300 {
 		fill: #ba68c8 !important; /* Light purple background */
 		stroke: #7b1fa2 !important; /* Darker purple border */
 	}
 
 	/* Text inside nodes should be dark for better readability on light backgrounds */
-	.mermaid .nivel100 .nodeLabel,
-	.mermaid .nivel200 .nodeLabel,
-	.mermaid .nivel300 .nodeLabel {
+	[data-theme="dark"] .mermaid .nivel100 .nodeLabel,
+	[data-theme="dark"] .mermaid .nivel200 .nodeLabel,
+	[data-theme="dark"] .mermaid .nivel300 .nodeLabel {
 		fill: #1a1a1a !important;
 		color: #1a1a1a !important;
 	}
 
 	/* General Mermaid text (labels, etc.) should be light for dark page background */
-	.mermaid text,
-	.mermaid .edgeLabel {
+	[data-theme="dark"] .mermaid text,
+	[data-theme="dark"] .mermaid .edgeLabel {
 		fill: #e0e0e0 !important;
 		color: #e0e0e0 !important;
 	}
 
 	/* Adjust Mermaid edge/arrow colors for dark theme */
-	.mermaid .edgePath .path,
-	.mermaid .flowchart-link {
+	[data-theme="dark"] .mermaid .edgePath .path,
+	[data-theme="dark"] .mermaid .flowchart-link {
 		stroke: #9e9e9e !important;
 	}
 
 	/* Adjust marker (arrow) colors */
-	.mermaid marker {
+	[data-theme="dark"] .mermaid marker {
 		fill: #9e9e9e !important;
 		stroke: #9e9e9e !important;
 		color: #9e9e9e !important;
