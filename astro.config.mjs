@@ -55,7 +55,91 @@ export default defineConfig({
 			sidebar: [
 				{
 					label: "CPAINT",
-					autogenerate: { directory: "cpaint" },
+					items: [
+						{ label: "Visão Geral", link: "/cpaint/" },
+						{ label: "PPC (ICA 38-758)", link: "/cpaint/ppc/" },
+						{
+							label: "Sistema de Códigos",
+							link: "/cpaint/sistema-de-codigos/",
+						},
+					],
+				},
+				{
+					label: "Previsão de Demanda",
+					collapsed: false,
+					items: [
+						{ label: "Visão Geral", link: "/cpaint/previsao-demanda/" },
+						{
+							label: "Cronograma",
+							link: "/cpaint/previsao-demanda/cronograma/",
+						},
+						{
+							label: "Nível 100 - Introdutório",
+							collapsed: false,
+							items: [
+								{
+									label: "EXL101 - Excel e Dados",
+									link: "/cpaint/previsao-demanda/exl101/",
+								},
+								{
+									label: "STAT101 - Estatística",
+									link: "/cpaint/previsao-demanda/stat101/",
+								},
+							],
+						},
+						{
+							label: "Nível 200 - Intermediário",
+							collapsed: false,
+							items: [
+								{
+									label: "ANA201 - Análise de Dados",
+									link: "/cpaint/previsao-demanda/ana201/",
+								},
+								{
+									label: "FCST201 - Métodos de Previsão",
+									link: "/cpaint/previsao-demanda/fcst201/",
+								},
+								{
+									label: "LOG201 - Gestão de Estoque",
+									link: "/cpaint/previsao-demanda/log201/",
+								},
+							],
+						},
+						{
+							label: "Nível 300 - Avançado",
+							collapsed: false,
+							items: [
+								{
+									label: "OPT301 - Otimização",
+									link: "/cpaint/previsao-demanda/opt301/",
+								},
+							],
+						},
+					],
+				},
+				{
+					label: "Compras Públicas",
+					link: "/cpaint/compras-publicas/",
+				},
+				{
+					label: "Doutrina de Emprego",
+					link: "/cpaint/doutrina/",
+				},
+				{
+					label: "Estágio e Seminários",
+					link: "/cpaint/estagio-e-seminarios/",
+				},
+				{
+					label: "Ferramentas Operacionais",
+					link: "/cpaint/ferramentas-operacionais/",
+				},
+				{
+					label: "Gestão da Cadeia",
+					link: "/cpaint/gestao-da-cadeia/",
+				},
+				{
+					label: "Planejamento e Governança",
+					link: "/cpaint/planejamento-e-governanca/",
 				},
 			],
 		}),

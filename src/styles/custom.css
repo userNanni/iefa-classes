@@ -15,6 +15,67 @@
 			--sl-color-bg-nav
 		); /* Match nav background for cohesion */
 		border: 1px solid var(--sl-color-gray-5);
+
+		/* Smooth scrolling */
+		scroll-behavior: smooth;
+
+		/* Better scrollbar for horizontal scrolling */
+		scrollbar-width: thin;
+		scrollbar-color: var(--sl-color-accent) var(--sl-color-gray-6);
+
+		/* Position relative for shadow overlays */
+		position: relative;
+	}
+
+	/* Webkit scrollbar styling for better appearance */
+	.schedule-container::-webkit-scrollbar {
+		height: 12px;
+	}
+
+	.schedule-container::-webkit-scrollbar-track {
+		background: var(--sl-color-gray-6);
+		border-radius: 0 0 8px 8px;
+	}
+
+	.schedule-container::-webkit-scrollbar-thumb {
+		background: var(--sl-color-accent);
+		border-radius: 6px;
+		border: 2px solid var(--sl-color-gray-6);
+	}
+
+	.schedule-container::-webkit-scrollbar-thumb:hover {
+		background: var(--sl-color-text-accent);
+	}
+
+	/* Gradient shadows to indicate scrollable content */
+	.schedule-container::before,
+	.schedule-container::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		bottom: 12px; /* Account for scrollbar */
+		width: 30px;
+		pointer-events: none;
+		z-index: 2;
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
+
+	/* Left shadow (visible when scrolled right) */
+	.schedule-container::before {
+		left: 0;
+		background: linear-gradient(to right, rgba(0, 0, 0, 0.15), transparent);
+	}
+
+	/* Right shadow (visible when can scroll right) */
+	.schedule-container::after {
+		right: 0;
+		background: linear-gradient(to left, rgba(0, 0, 0, 0.15), transparent);
+	}
+
+	/* Show right shadow by default on large tables */
+	.schedule-container:has(table) {
+		overflow-x: auto;
 	}
 
 	/* Target the table specifically within the container */
@@ -69,6 +130,41 @@
 		+ .sl-markdown-content
 		> table:not(:where(.not-content *)) {
 		display: table; /* Reset starlight default */
+	}
+
+	/* ============================================ */
+	/* Evaluation Table - Merged Cells Styling    */
+	/* ============================================ */
+
+	/* Add stronger border between different disciplines */
+	.schedule-container table tr:has(td:first-child:not(:empty)) {
+		border-top: 3px solid var(--sl-color-accent) !important;
+	}
+
+	/* First row doesn't need top border */
+	.schedule-container table tr:first-child,
+	.schedule-container table tr:nth-child(2) {
+		border-top: none !important;
+	}
+
+	/* Make discipline names (first column with content) bold and larger */
+	.schedule-container table td:first-child:not(:empty) {
+		font-weight: 700 !important;
+		font-size: 1.05em !important;
+		background-color: var(--sl-color-gray-6) !important;
+		border-right: 2px solid var(--sl-color-accent) !important;
+	}
+
+	/* Dim empty cells in first column to show they're part of above group */
+	.schedule-container table td:first-child:empty {
+		background-color: var(--sl-color-gray-7) !important;
+		border-right: 2px solid var(--sl-color-gray-5) !important;
+		opacity: 0.3;
+	}
+
+	/* Add subtle left padding to units when discipline cell is empty */
+	.schedule-container table tr:has(td:first-child:empty) td:nth-child(2) {
+		padding-left: 2rem !important;
 	}
 }
 
@@ -556,4 +652,162 @@
 /* Title */
 .mermaid svg g.titleText text {
 	font-size: 14px !important;
+}
+
+/* ============================================ */
+/* Sidebar Visual Grouping Improvements        */
+/* ============================================ */
+
+/* DESKTOP SIDEBAR - usando classes reais do Starlight Black */
+
+/* Add spacing between main sidebar groups */
+.container-sidebar .container-sidebar-entry {
+	margin-bottom: 1.5rem !important;
+}
+
+/* Add visual separator between main groups */
+.container-sidebar .container-sidebar-entry:not(:last-child) {
+	padding-bottom: 1rem !important;
+	border-bottom: 1px solid var(--sl-color-hairline-shade) !important;
+}
+
+/* Style for group titles (CPAINT, Previsão de Demanda, etc.) */
+.container-sidebar .entry-title {
+	font-weight: 600 !important;
+	color: var(--sl-color-text-accent) !important;
+	padding: 0.75rem 0 !important;
+	margin-bottom: 0.5rem !important;
+	font-size: 1.05em !important;
+	text-transform: uppercase !important;
+	letter-spacing: 0.03em !important;
+}
+
+/* Add subtle background to nested level groups (Nível 100, 200, 300) */
+.container-sidebar .container-sidebar-entry
+	.container-sidebar-entry
+	.entry-title {
+	background-color: var(--sl-color-gray-6) !important;
+	border-radius: 6px !important;
+	padding: 0.6rem 1rem !important;
+	margin: 0.25rem 0 !important;
+	font-weight: 500 !important;
+	font-size: 0.95em !important;
+	text-transform: none !important;
+	transition: background-color 0.2s ease;
+}
+
+.container-sidebar
+	.container-sidebar-entry
+	.container-sidebar-entry
+	.entry-title:hover {
+	background-color: var(--sl-color-gray-5) !important;
+}
+
+/* Add color coding for difficulty levels - usando hrefs reais */
+/* Level 100 - Blue tint */
+.container-sidebar a.entry-link[href*="exl101"],
+.container-sidebar a.entry-link[href*="stat101"] {
+	border-left: 3px solid #1976d2 !important;
+	padding-left: 0.75rem !important;
+}
+
+/* Level 200 - Orange tint */
+.container-sidebar a.entry-link[href*="ana201"],
+.container-sidebar a.entry-link[href*="fcst201"],
+.container-sidebar a.entry-link[href*="log201"] {
+	border-left: 3px solid #f57c00 !important;
+	padding-left: 0.75rem !important;
+}
+
+/* Level 300 - Purple tint */
+.container-sidebar a.entry-link[href*="opt301"] {
+	border-left: 3px solid #7b1fa2 !important;
+	padding-left: 0.75rem !important;
+}
+
+/* Add breathing room between groups */
+.container-sidebar .container-group-link {
+	margin-bottom: 0.75rem !important;
+}
+
+/* Add hover effect for better interactivity */
+.container-sidebar a.entry-link:hover {
+	background-color: var(--sl-color-gray-6) !important;
+	transition: background-color 0.2s ease;
+	border-radius: 4px !important;
+}
+
+/* Add subtle shadow to active/current page */
+.container-sidebar a.entry-link[aria-current="page"] {
+	background-color: var(--sl-color-accent-low) !important;
+	font-weight: 600 !important;
+	box-shadow: inset 3px 0 0 var(--sl-color-accent) !important;
+	border-radius: 4px !important;
+}
+
+/* ============================================ */
+/* MOBILE DRAWER - usando classes do Drawer.astro */
+/* ============================================ */
+
+/* Add spacing between main groups in mobile drawer */
+.sidebar-group.depth-0 {
+	margin-bottom: 1.5rem !important;
+	padding-bottom: 1rem !important;
+	border-bottom: 1px solid var(--sl-color-hairline-shade) !important;
+}
+
+/* Style for depth-0 titles (main sections) */
+.group-title.depth-0 {
+	font-weight: 600 !important;
+	color: var(--sl-color-text-accent) !important;
+	font-size: 1.05em !important;
+	text-transform: uppercase !important;
+	letter-spacing: 0.03em !important;
+	margin-bottom: 0.75rem !important;
+}
+
+/* Style for depth-1 titles (Nível 100, 200, 300) */
+.group-title.depth-1 {
+	background-color: var(--sl-color-gray-6) !important;
+	border-radius: 6px !important;
+	padding: 0.6rem 1rem !important;
+	margin: 0.5rem 0 !important;
+	font-weight: 500 !important;
+}
+
+/* Color coding for mobile links */
+/* Level 100 - Blue tint */
+.sidebar-link[href*="exl101"],
+.sidebar-link[href*="stat101"] {
+	border-left: 3px solid #1976d2 !important;
+	padding-left: 0.75rem !important;
+}
+
+/* Level 200 - Orange tint */
+.sidebar-link[href*="ana201"],
+.sidebar-link[href*="fcst201"],
+.sidebar-link[href*="log201"] {
+	border-left: 3px solid #f57c00 !important;
+	padding-left: 0.75rem !important;
+}
+
+/* Level 300 - Purple tint */
+.sidebar-link[href*="opt301"] {
+	border-left: 3px solid #7b1fa2 !important;
+	padding-left: 0.75rem !important;
+}
+
+/* Hover effect for mobile links */
+.sidebar-link:hover {
+	background-color: var(--sl-color-gray-6) !important;
+	transition: background-color 0.2s ease;
+	border-radius: 4px !important;
+}
+
+/* Active page styling for mobile */
+.sidebar-link[aria-current="page"] {
+	background-color: var(--sl-color-accent-low) !important;
+	font-weight: 600 !important;
+	box-shadow: inset 3px 0 0 var(--sl-color-accent) !important;
+	border-radius: 4px !important;
 }
